@@ -1,7 +1,12 @@
 (ns blackjack.core
-  (:gen-class))
+  (:gen-class)
+  (:require
+   [blackjack.game :refer [make-player]]
+   [card-ascii-art.core :as card-view]))
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!"))
+  (card-view/print-player (make-player "John Doe")))
+
+(-main)

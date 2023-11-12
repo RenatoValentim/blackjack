@@ -12,5 +12,5 @@
 
   (testing "Should define a new player"
     (let [player (make-player "John Doe")]
-      (is "John Doe" (:name player))
-      (is 2 (count (:cards player))))))
+      (is (= "John Doe" (:name player)))
+      (is (= 2 (count (:cards player)))))))
