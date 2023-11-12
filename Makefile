@@ -1,4 +1,4 @@
 .PHONY: test
 
 test:
-	@lein eftest
+	@lein test

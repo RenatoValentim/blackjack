@@ -7,5 +7,4 @@
   :main ^:skip-aot blackjack.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
-                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}}
-  :plugins [[lein-eftest "0.6.0"]])
+                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
