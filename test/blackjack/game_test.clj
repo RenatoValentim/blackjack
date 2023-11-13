@@ -1,6 +1,6 @@
 (ns blackjack.game-test
   (:require
-   [blackjack.game :refer [make-player new-card player-points]]
+   [blackjack.game :refer [make-player new-card player-points more-card]]
    [clojure.test :refer :all]))
 
 (deftest get-new-card-test
@@ -28,3 +28,11 @@
   (testing "Should to maintain A(1) card to 1 points"
     (let [points (player-points [1 5 7])]
       (is (= 13 points)))))
+
+(deftest get-more-cards-test
+  (testing "Should get more cards"
+    (let [player (make-player "John Doe")]
+      (let [updated-player (more-card player)]
+        (is (> (:points updated-player) (:points player)))
+        (is (= "John Doe" (:name updated-player)))
+        (is (> (count (:cards updated-player)) 2))))))

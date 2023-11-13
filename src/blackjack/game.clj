@@ -24,3 +24,11 @@
     {:name name
      :cards cards
      :points  points}))
+
+(defn more-card [player]
+  (let [card (new-card)
+        cards (conj (:cards player) card)
+        new-player (assoc player :cards cards)
+        points (player-points cards)]
+    (assoc new-player :points points)))
+
