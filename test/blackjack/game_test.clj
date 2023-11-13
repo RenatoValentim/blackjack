@@ -19,4 +19,8 @@
 (deftest calculate-a-player-points-test
   (testing "The cards J(11) Q(12) and K(13) must be worth 10 points"
     (let [points (player-points [11 12 13])]
-      (is (= 30 points)))))
+      (is (= 30 points))))
+
+  (testing "Should change A(1) card to 11 points"
+    (let [points (player-points [1 2])]
+      (is (= 13 points)))))
