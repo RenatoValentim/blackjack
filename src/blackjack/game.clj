@@ -11,8 +11,10 @@
 
 (defn player-points [cards]
   (let [cards-without-JQK (map JQK->10 cards)
-        cards-with-A11 (map A->11 cards-without-JQK)]
-    (reduce + cards-with-A11)))
+        cards-with-A11 (map A->11 cards-without-JQK)
+        points-with-A1 (reduce + cards-without-JQK)
+        points-with-A11 (reduce + cards-with-A11)]
+    (if (> points-with-A11 21) points-with-A1 points-with-A11)))
 
 (defn make-player [name]
   (let [card-1 (new-card)

@@ -22,5 +22,9 @@
       (is (= 30 points))))
 
   (testing "Should change A(1) card to 11 points"
-    (let [points (player-points [1 2])]
+    (let [points (player-points [1 10])]
+      (is (= 21 points))))
+
+  (testing "Should to maintain A(1) card to 1 points"
+    (let [points (player-points [1 5 7])]
       (is (= 13 points)))))
