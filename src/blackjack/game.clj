@@ -3,8 +3,18 @@
 (defn new-card []
   (inc (rand-int 13)))
 
+(defn JQK->10 [card]
+  (if (> card 10) 10 card))
+
+(defn player-points [cards]
+  (let [cards-without-JQK (map JQK->10 cards)]
+    (reduce + cards-without-JQK)))
+
 (defn make-player [name]
   (let [card-1 (new-card)
-        card-2 (new-card)]
+        card-2 (new-card)
+        cards [card-1 card-2]
+        points (player-points cards)]
     {:name name
-     :cards [card-1 card-2]}))
+     :cards cards
+     :points  points}))
